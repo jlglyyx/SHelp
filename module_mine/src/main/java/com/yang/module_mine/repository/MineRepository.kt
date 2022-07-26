@@ -28,4 +28,9 @@ class MineRepository @Inject constructor(private val mainApi: MineApi) :BaseRepo
             mainApi.getUserInfo(id)
         }
     }
+    suspend fun loginOut(): MResult<String> {
+        return withContextIO {
+            mainApi.loginOut()
+        }
+    }
 }

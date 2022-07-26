@@ -18,6 +18,7 @@ import com.yang.lib_common.data.BannerBean
 import com.yang.lib_common.data.LoginData
 import com.yang.lib_common.proxy.InjectViewModelProxy
 import com.yang.lib_common.util.*
+import com.yang.module_mine.R
 import com.yang.module_mine.adapter.MoreFunctionAdapter
 import com.yang.module_mine.data.MoreFunctionData
 import com.yang.module_mine.databinding.FraMineBinding
@@ -91,12 +92,12 @@ class MineFragment : BaseFragment<FraMineBinding>() {
 
     private fun initRecyclerView() {
         moreFunctionAdapter = MoreFunctionAdapter(mutableListOf<MoreFunctionData>().apply {
-            add(MoreFunctionData("","小黑屋",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData("","小说",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData("","我的订单",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData("","商城",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData("","意见反馈",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData("","设置",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_home,"小黑屋",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_add,"小说",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_add,"我的订单",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_add,"商城",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_add,"意见反馈",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_setting,"设置",AppConstant.RoutePath.MINE_SETTING_ACTIVITY))
         })
 
         moreFunctionAdapter.setOnItemClickListener { adapter, view, position ->

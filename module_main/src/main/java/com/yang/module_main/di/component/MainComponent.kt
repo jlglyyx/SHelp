@@ -5,7 +5,9 @@ import com.yang.lib_common.scope.ActivityScope
 import com.yang.module_main.ui.activity.MainActivity
 import com.yang.module_main.di.factory.MainViewModelFactory
 import com.yang.module_main.di.module.MainModule
+import com.yang.module_main.ui.activity.AddTaskActivity
 import com.yang.module_main.ui.activity.LoginActivity
+import com.yang.module_main.ui.activity.TaskDetailActivity
 import com.yang.module_main.ui.fragment.MainFragment
 import dagger.Component
 
@@ -24,6 +26,10 @@ interface MainComponent {
     fun inject(inject: MainActivity)
 
     fun inject(inject: LoginActivity)
+
+    fun inject(inject: AddTaskActivity)
+
+    fun inject(inject: TaskDetailActivity)
 
 
     fun inject(inject: MainFragment)

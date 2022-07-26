@@ -18,7 +18,7 @@ class MoreFunctionAdapter(data: MutableList<MoreFunctionData>?) : BaseQuickAdapt
     }
 
     override fun convert(helper: BaseViewHolder, item: MoreFunctionData) {
-        helper.setImageResource(R.id.iv_icon,R.drawable.iv_home)
+        helper.setImageResource(R.id.iv_icon,item.icon)
             .setText(R.id.tv_name,item.name)
     }
 }

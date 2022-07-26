@@ -45,15 +45,15 @@ interface AppConstant {
          */
 
         const val MAIN_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/MainActivity"
-        const val ADD_DYNAMIC_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/AddDynamicActivity"
+        const val ADD_TASK_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/AddTaskActivity"
         const val MY_COLLECTION_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/MyCollectionActivity"
         const val MY_PUSH_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/MyPushActivity"
-        const val DYNAMIC_DETAIL_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/DynamicDetailActivity"
+        const val TASK_DETAIL_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/TaskDetailActivity"
         const val PICTURE_SELECT_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/PictureSelectActivity"
         const val OPEN_VIP_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/OpenVipActivity"
         const val PRIVACY_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/PrivacyActivity"
         const val ACCESSIBILITY_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/AccessibilityActivity"
-        const val SETTING_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/SettingActivity"
+
         const val ACCOUNT_SETTING_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/AccountSettingActivity"
         const val DOWNLOAD_SETTING_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/DownloadSettingActivity"
         const val ABOUT_AND_HELP_ACTIVITY = "/$MODULE_MAIN/$ACTIVITY/AboutAndHelpActivity"
@@ -137,6 +137,8 @@ interface AppConstant {
 
         const val MINE_CHANGE_PASSWORD_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineChangePasswordActivity"
 
+        const val MINE_CHANGE_PHONE_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineChangePhoneActivity"
+
         const val MINE_ADD_ADDRESS_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineAddAddressActivity"
 
         const val MINE_OBTAIN_TASK_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineObtainTaskActivity"
@@ -144,6 +146,8 @@ interface AppConstant {
         const val MINE_ORDER_DETAIL_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineOrderDetailActivity"
 
         const val MINE_CREATE_ORDER_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineCreateOrderActivity"
+
+        const val MINE_SETTING_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineSettingActivity"
 
 
 

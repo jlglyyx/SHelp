@@ -6,4 +6,4 @@ package com.yang.module_mine.data
  * @Author: yxy
  * @Date: 2022/7/25 17:17
  */
-data class MoreFunctionData(var icon:String,var name:String,var routePath:String,var enable:Boolean = true)
+data class MoreFunctionData(var icon:Int,var name:String,var routePath:String,var enable:Boolean = true)

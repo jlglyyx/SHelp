@@ -20,4 +20,7 @@ interface MineApi {
 
     @POST("api/user/query/userInfo")
     suspend fun getUserInfo(@Query(AppConstant.Constant.ID) id:String): MResult<UserInfoData>
+
+    @POST("api/user/loginOut")
+    suspend fun loginOut(): MResult<String>
 }

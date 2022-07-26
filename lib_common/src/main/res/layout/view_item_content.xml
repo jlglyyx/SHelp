@@ -32,7 +32,6 @@
         android:singleLine="true"
         android:ellipsize="end"
         android:maxLines="1"
-        android:maxLength="8"
         android:textColor="@color/textColor"
         android:textSize="@dimen/sp_15" />
     <ImageView

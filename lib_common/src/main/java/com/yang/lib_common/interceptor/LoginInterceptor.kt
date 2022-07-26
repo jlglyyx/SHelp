@@ -9,7 +9,6 @@ import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
 import com.yang.lib_common.R
 import com.yang.lib_common.constant.AppConstant
-import com.yang.lib_common.util.buildARouter
 import com.yang.lib_common.util.getDefaultMMKV
 
 
@@ -40,8 +39,8 @@ class LoginInterceptor : IInterceptor {
         AppConstant.RoutePath.MY_PUSH_ACTIVITY,
         AppConstant.RoutePath.MY_COLLECTION_ACTIVITY,
         AppConstant.RoutePath.PRIVACY_ACTIVITY,
-        AppConstant.RoutePath.SETTING_ACTIVITY,
-        AppConstant.RoutePath.ADD_DYNAMIC_ACTIVITY,
+        AppConstant.RoutePath.MINE_SETTING_ACTIVITY,
+        AppConstant.RoutePath.ADD_TASK_ACTIVITY,
         AppConstant.RoutePath.MINE_OBTAIN_TURNOVER_ACTIVITY,
         AppConstant.RoutePath.MINE_SIGN_TURNOVER_ACTIVITY,
         AppConstant.RoutePath.MINE_EXTENSION_TURNOVER_ACTIVITY,
@@ -57,9 +56,6 @@ class LoginInterceptor : IInterceptor {
                 callback.onContinue(postcard)
             }
             AppConstant.Constant.LOGIN_FAIL -> {
-                buildARouter(AppConstant.RoutePath.LOGIN_ACTIVITY).navigation()
-            }
-            AppConstant.Constant.LOGIN_NO_PERMISSION -> {
                 val indexOf = toLoginList.indexOf(postcard.path)
                 if (indexOf != -1) {
                     postcard.group = AppConstant.RoutePath.MODULE_LOGIN

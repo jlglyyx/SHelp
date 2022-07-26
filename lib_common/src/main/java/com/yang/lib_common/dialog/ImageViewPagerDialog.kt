@@ -34,7 +34,7 @@ class ImageViewPagerDialog(
     }
 
     private val mBinding by lazy {
-        DialogImageViewpagerBinding.inflate(LayoutInflater.from(context))
+        DialogImageViewpagerBinding.bind(contentView)
     }
 
 
