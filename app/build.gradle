@@ -40,6 +40,7 @@ dependencies {
     implementation project(":lib_common")
     if (!isModule.toBoolean()) {
         implementation project(path: ':module_main')
+        implementation project(path: ':module_task')
         implementation project(path: ':module_mine')
     }
 }

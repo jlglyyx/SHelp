@@ -41,8 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="任务标题："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -68,8 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="任务内容："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -97,8 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="店铺名称："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -125,8 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="宝贝链接："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -154,8 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="宝贝关键词："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -179,8 +174,7 @@
                 android:layout_height="wrap_content"
                 android:text="宝贝图片："
                 android:padding="@dimen/dp_10"
-                android:textColor="@color/black"
-                android:textSize="@dimen/sp_16" />
+                style="@style/taskTitleStyle" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@id/recyclerView"
                 android:layout_width="match_parent"
@@ -197,8 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="放单数量："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -216,8 +209,7 @@
                     android:layout_height="wrap_content"
                     android:text="商品金额："
                     android:textColor="@color/black"
-                    android:layout_marginStart="@dimen/dp_5"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -246,8 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="每单商品佣金："
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16" />
+                    style="@style/taskTitleStyle" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -261,19 +252,6 @@
                     android:gravity="top"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_0_5"
-                android:layout_marginHorizontal="@dimen/dp_10"
-                android:background="@color/COLOR_F0DCDCDC"/>
-            <com.yang.lib_common.widget.ItemContentView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:itemLeftContent="是否买家垫付"
-                app:itemRightContent="是"
-                android:id="@+id/icv_advance_payment"
-                app:itemLeftImgVisible="false"/>
-
         </LinearLayout>
 
 

@@ -19,7 +19,7 @@ import com.yang.lib_common.util.clicks
 class PayTaskDialog(context: Context) : BottomPopupView(context) {
 
     private val mBinding by lazy {
-        DialogPayTaskBinding.inflate(LayoutInflater.from(context))
+        DialogPayTaskBinding.bind(bottomPopupContainer.getChildAt(0))
     }
 
     var onItemClickListener:OnItemClickListener? = null
@@ -41,6 +41,7 @@ class PayTaskDialog(context: Context) : BottomPopupView(context) {
 
         mBinding.tvCancel.clicks().subscribe {
             onItemClickListener?.onCancelClickListener()
+            dismiss()
         }
         mBinding.tvConfirm.clicks().subscribe {
             onItemClickListener?.onConfirmClickListener()

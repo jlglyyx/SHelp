@@ -86,8 +86,8 @@ class LoginActivity:BaseActivity<ActLoginBinding>() {
                     delay(1000)
                 }
                 true
-            }.await()
-            if (await){
+            }
+            if (await.await()){
                 mViewBinding.tvTime.text = "获取验证码"
                 mViewBinding.tvTime.isEnabled = true
             }

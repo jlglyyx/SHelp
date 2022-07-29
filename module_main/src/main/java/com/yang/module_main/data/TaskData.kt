@@ -41,6 +41,10 @@ class TaskData(val id:String?=""){
     var taskCommission: String? = null
     var taskPayUser: Int = 0
 
+    var taskPersonList:MutableList<TaskPersonData> = mutableListOf()
+
+
 
 
 }
+data class TaskPersonData(val id: String?,val imageUrls:String?,val progress:Int = 0)

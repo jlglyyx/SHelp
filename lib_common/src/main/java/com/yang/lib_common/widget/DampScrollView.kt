@@ -25,12 +25,12 @@ class DampScrollView : NestedScrollView {
     private var startY = 0
 
     /**偏移比率*/
-    private var damping = 0.5f
+    private var damping = 0.3f
 
     /**动画执行时间*/
-    private var resetDuration = 300
+    private var resetDuration = 400
 
-    private var mContext: Context
+    private var mContext: Context = context
 
 
     companion object {
@@ -44,7 +44,6 @@ class DampScrollView : NestedScrollView {
         attrs,
         defStyleAttr
     ){
-        this.mContext = context
         init(attrs!!)
     }
 

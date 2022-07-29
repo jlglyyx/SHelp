@@ -1,6 +1,9 @@
 package com.yang.module_main.ui.fragment
 
+import android.util.Log
+import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.gson.Gson
@@ -17,6 +20,9 @@ import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_main.adapter.TaskAdapter
 import com.yang.module_main.databinding.FraMainBinding
 import com.yang.module_main.viewmodel.MainViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -51,6 +57,11 @@ class MainFragment : BaseLazyFragment<FraMainBinding>(), OnRefreshLoadMoreListen
         initSmartRefreshLayout()
         initRecyclerView()
     }
+
+
+
+
+
 
     override fun initData() {
 

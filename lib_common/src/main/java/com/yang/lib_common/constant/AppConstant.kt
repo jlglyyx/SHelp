@@ -39,6 +39,7 @@ interface AppConstant {
         const val MODULE_VIDEO = "module_video"
         const val MODULE_PICTURE = "module_picture"
         const val MODULE_LOGIN = "module_login"
+        const val MODULE_TASK = "module_task"
 
         /**
          * main
@@ -67,6 +68,14 @@ interface AppConstant {
         const val LEFT_FRAGMENT = "/$MODULE_MAIN/$FRAGMENT/LeftFragment"
         const val MY_COLLECTION_FRAGMENT = "/$MODULE_MAIN/$FRAGMENT/MyCollectionFragment"
         const val MY_DOWNLOAD_FRAGMENT = "/$MODULE_MAIN/$FRAGMENT/MyDownLoadFragment"
+
+        /**
+         * task
+         */
+        const val TASK_FRAGMENT = "/$MODULE_TASK/$FRAGMENT/TaskFragment"
+
+        const val TASK_SELLER_PROGRESS_ACTIVITY = "/$MODULE_TASK/$ACTIVITY/TaskSellerProgressActivity"
+        const val TASK_BUYER_PROGRESS_ACTIVITY = "/$MODULE_TASK/$ACTIVITY/TaskBuyerProgressActivity"
 
 
         /**

@@ -44,9 +44,6 @@ class AddTaskActivity : BaseActivity<ActAddTaskBinding>() {
 
     private var mPayTaskDialog: PayTaskDialog? = null
 
-    private var checkArray = arrayOf("是", "否")
-    private var selectCheck = 0
-
     private val taskData = TaskData()
 
     override fun initViewBinding(): ActAddTaskBinding {
@@ -62,14 +59,6 @@ class AddTaskActivity : BaseActivity<ActAddTaskBinding>() {
             override fun tvRightClickListener() {
                 checkForm()
             }
-        }
-        mViewBinding.icvAdvancePayment.clicks().subscribe {
-            XPopup.Builder(this).asBottomList(
-                "", checkArray
-            ) { position, text ->
-                selectCheck = position
-                mViewBinding.icvAdvancePayment.rightContent = text
-            }.show()
         }
 
         initRecyclerView()
@@ -209,7 +198,6 @@ class AddTaskActivity : BaseActivity<ActAddTaskBinding>() {
             taskNumber = etTaskNumber.toInt()
             taskPrice = etTaskPrice
             taskCommission = etTaskCommission
-            taskPayUser = selectCheck
         }
 
         if (null == mPayTaskDialog){

@@ -26,11 +26,11 @@ class MainActivity : BaseActivity<ActMainBinding>() {
 
     private lateinit var mFragments: MutableList<Fragment>
 
-    private var mTitles = arrayListOf("首页", "我的")
+    private var mTitles = arrayListOf("首页", "工作台","我的")
 
-    private var mImages = arrayListOf(R.drawable.iv_home, R.drawable.iv_mine)
+    private var mImages = arrayListOf(R.drawable.iv_home,R.drawable.iv_mine, R.drawable.iv_mine)
 
-    private var mSelectImages = arrayListOf(R.drawable.iv_home_select, R.drawable.iv_mine_select)
+    private var mSelectImages = arrayListOf(R.drawable.iv_home_select, R.drawable.iv_mine_select,R.drawable.iv_mine_select)
 
     override fun initViewBinding(): ActMainBinding {
         return bind(ActMainBinding::inflate)
@@ -39,6 +39,7 @@ class MainActivity : BaseActivity<ActMainBinding>() {
     override fun initData() {
         mFragments = mutableListOf<Fragment>().apply {
             add(buildARouter(AppConstant.RoutePath.MAIN_FRAGMENT).navigation() as Fragment)
+            add(buildARouter(AppConstant.RoutePath.TASK_FRAGMENT).navigation() as Fragment)
             add(buildARouter(AppConstant.RoutePath.MINE_FRAGMENT).navigation() as Fragment)
         }
         mainViewModel.getA()

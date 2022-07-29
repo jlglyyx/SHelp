@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yang.lib_common.widget.CommonToolBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerContent="任务进度"
+        app:rightContent="催促卖家支付"
+        android:id="@id/commonToolBar"
+        app:rightContentVisible="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/orange"
+        android:layout_marginHorizontal="@dimen/dp_5"
+        android:text="所有凭证只能提交一次,请谨慎填写!"/>
+
+    <com.yang.lib_common.widget.DampScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_marginBottom="@dimen/dp_5"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp_10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/taskTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:padding="@dimen/dp_10"
+                        android:text="任务凭证："
+                        app:drawableStartCompat="@drawable/shape_title_start_bg" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/task_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:paddingHorizontal="@dimen/dp_10" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:id="@+id/bt_task_certificate"
+                        android:background="@drawable/shape_pay_button_bg"
+                        android:layout_margin="@dimen/dp_10"
+                        android:text="提交任务凭证"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_marginBottom="@dimen/dp_5"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp_10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/taskTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:padding="@dimen/dp_10"
+                        android:text="支付凭证："
+                        app:drawableStartCompat="@drawable/shape_title_start_bg" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/pay_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:paddingHorizontal="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp_10"
+                            android:text="订单编号："
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="请输入订单编号"
+                            android:textColor="@color/textColor"
+                            android:maxLines="1"
+                            android:padding="@dimen/dp_10"
+                            android:background="@drawable/layer_list_account_input"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:textSize="@dimen/sp_14" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp_10"
+                            android:text="支付宝交易号："
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="请输入支付宝交易号"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:padding="@dimen/dp_10"
+                            android:background="@drawable/layer_list_account_input"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/sp_14" />
+
+                    </LinearLayout>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:id="@+id/bt_pay_certificate"
+                        android:background="@drawable/shape_pay_button_bg"
+                        android:layout_margin="@dimen/dp_10"
+                        android:text="提交支付凭证"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_marginBottom="@dimen/dp_5"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp_10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/taskTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:padding="@dimen/dp_10"
+                        android:text="评价凭证："
+                        app:drawableStartCompat="@drawable/shape_title_start_bg" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/comment_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:paddingHorizontal="@dimen/dp_10" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:id="@+id/bt_comment_certificate"
+                        android:layout_margin="@dimen/dp_10"
+                        android:background="@drawable/shape_pay_button_bg"
+                        android:text="提交评价凭证"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </com.yang.lib_common.widget.DampScrollView>
+</LinearLayout>

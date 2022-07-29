@@ -2,6 +2,7 @@ package com.yang.module_main.ui.activity
 
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.lxj.xpopup.XPopup
 import com.yang.apt_annotation.annotain.InjectViewModel
@@ -11,6 +12,7 @@ import com.yang.lib_common.constant.AppConstant
 import com.yang.lib_common.dialog.ImageViewPagerDialog
 import com.yang.lib_common.proxy.InjectViewModelProxy
 import com.yang.lib_common.util.*
+import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_main.R
 import com.yang.module_main.adapter.TaskDetailAdapter
 import com.yang.module_main.data.TaskData
@@ -57,7 +59,6 @@ class TaskDetailActivity : BaseActivity<ActTaskDetailBinding>() {
         mViewBinding.tvTaskNumber.text = "${item.taskNumber}"
         mViewBinding.tvTaskPrice.text = item.taskPrice
         mViewBinding.tvTaskCommission.text = item.taskCommission
-        mViewBinding.icvAdvancePayment.rightContent = if (item.taskPayUser == 0) "是" else "否"
     }
 
     private fun initItemMainContentImage(item: TaskData) {
@@ -82,8 +83,17 @@ class TaskDetailActivity : BaseActivity<ActTaskDetailBinding>() {
     override fun initView() {
         mViewBinding.commonToolBar.rightContentVisible = type
         initRecyclerView()
+        lifecycle.addObserver(mViewBinding.autoScrollListView)
+
+        mViewBinding.commonToolBar.tVRightCallBack = object : CommonToolBar.TVRightCallBack{
+            override fun tvRightClickListener() {
+                mViewBinding.commonToolBar.rightContentVisible = false
+            }
+        }
 
     }
+
+
 
     override fun initViewModel() {
         InjectViewModelProxy.inject(this)
@@ -100,7 +110,6 @@ class TaskDetailActivity : BaseActivity<ActTaskDetailBinding>() {
 
 
     private fun initRecyclerView() {
-
 
     }
 

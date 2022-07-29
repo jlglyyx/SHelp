@@ -13,6 +13,7 @@ import com.yang.lib_common.util.showShort
 import com.yang.lib_common.util.toJson
 import com.yang.module_main.R
 import com.yang.module_main.data.TaskData
+import com.yang.module_main.data.TaskPersonData
 import com.yang.module_main.repository.MainRepository
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -139,6 +140,12 @@ class MainViewModel @Inject constructor(
                         taskType = "补单任务"
                         taskCommission = "6"
                         userVipLevel = 5
+                        taskPersonList = mutableListOf<TaskPersonData>().apply {
+                            for (i in 0..30){
+                                add(TaskPersonData("$i","https://img2.baidu.com/it/u=3583098839,704145971&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",i%3))
+                            }
+
+                        }
                     })
 
                     add(TaskData().apply {
