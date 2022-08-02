@@ -60,11 +60,15 @@ class MineFragment : BaseFragment<FraMineBinding>() {
         initRecyclerView()
 
         val loginStatus = getDefaultMMKV().getInt(AppConstant.Constant.LOGIN_STATUS, -1)
+        val loginUserType = getDefaultMMKV().getInt(AppConstant.Constant.LOGIN_USER_TYPE, 0)
         if (loginStatus == AppConstant.Constant.LOGIN_SUCCESS){
             mViewBinding.clHead.visibility = View.GONE
             mViewBinding.lottieAnimationView.visibility = View.GONE
             mViewBinding.clHeadLogin.visibility = View.VISIBLE
+            mViewBinding.tvLoginUserType.text = if (loginUserType == 0) "买家版" else "卖家版"
         }
+
+
     }
 
     override fun initData() {
@@ -73,6 +77,8 @@ class MineFragment : BaseFragment<FraMineBinding>() {
                 mViewBinding.clHead.visibility = View.GONE
                 mViewBinding.lottieAnimationView.visibility = View.GONE
                 mViewBinding.clHeadLogin.visibility = View.VISIBLE
+                val loginUserType = getDefaultMMKV().getInt(AppConstant.Constant.LOGIN_USER_TYPE, 0)
+                mViewBinding.tvLoginUserType.text = if (loginUserType == 0) "买家版" else "卖家版"
             } else {
                 mViewBinding.clHead.visibility = View.VISIBLE
                 mViewBinding.lottieAnimationView.visibility = View.VISIBLE
@@ -92,11 +98,10 @@ class MineFragment : BaseFragment<FraMineBinding>() {
 
     private fun initRecyclerView() {
         moreFunctionAdapter = MoreFunctionAdapter(mutableListOf<MoreFunctionData>().apply {
-            add(MoreFunctionData(R.drawable.iv_home,"小黑屋",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_add,"小说",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_add,"我的订单",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_add,"商城",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_home,"消息通知",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_add,"联系客服",AppConstant.RoutePath.LOGIN_ACTIVITY))
             add(MoreFunctionData(R.drawable.iv_add,"意见反馈",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_add,"关于App",AppConstant.RoutePath.LOGIN_ACTIVITY))
             add(MoreFunctionData(R.drawable.iv_setting,"设置",AppConstant.RoutePath.MINE_SETTING_ACTIVITY))
         })
 

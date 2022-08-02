@@ -21,6 +21,7 @@ import com.yang.lib_common.util.*
 import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_task.R
 import com.yang.module_task.databinding.ActTaskBuyerProgressBinding
+import com.yang.module_task.dialog.TaskDetailDialog
 import java.util.ArrayList
 
 /**
@@ -71,6 +72,11 @@ class TaskBuyerProgressActivity :BaseActivity<ActTaskBuyerProgressBinding>(){
                showShort("已通知卖家尽快支付，请您耐心等待")
             }
         }
+        mViewBinding.tvDetail.clicks().subscribe {
+            XPopup.Builder(this).asCustom(TaskDetailDialog(this)).show()
+        }
+
+
         initTaskRecyclerView()
         initPayRecyclerView()
         initCommentRecyclerView()

@@ -41,20 +41,28 @@ class TaskViewModel @Inject constructor(
                 taskLiveData.postValue(mutableListOf())
             } else {
                 taskLiveData.postValue(mutableListOf<TaskProgressData>().apply {
-                    add(TaskProgressData(1, 1).apply {
-                        addSubItem(TaskProgressData(0,0))
+//                    add(TaskProgressData(2, 0).apply {
+//                    })
+//
+//                    add(TaskProgressData(2, 0).apply {
+//                    })
+//
+//                    add(TaskProgressData(2, 0).apply {
+//                    })
+                    add(TaskProgressData(0, 0).apply {
+                        addSubItem(TaskProgressData(1,1))
                     })
 
-                    add(TaskProgressData(1, 1).apply {
-                        addSubItem(TaskProgressData(0,0))
-                        addSubItem(TaskProgressData(0,0))
-                        addSubItem(TaskProgressData(0,0))
-                        addSubItem(TaskProgressData(0,0))
+                    add(TaskProgressData(0, 0).apply {
+                        addSubItem(TaskProgressData(1,1))
+                        addSubItem(TaskProgressData(1,1))
+                        addSubItem(TaskProgressData(1,1))
+                        addSubItem(TaskProgressData(1,1))
                     })
 
-                    add(TaskProgressData(1, 1).apply {
-                        addSubItem(TaskProgressData(0,0))
-                        addSubItem(TaskProgressData(0,0))
+                    add(TaskProgressData(0, 0).apply {
+                        addSubItem(TaskProgressData(1,1))
+                        addSubItem(TaskProgressData(1,1))
                     })
                 })
 

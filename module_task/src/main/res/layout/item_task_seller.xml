@@ -8,16 +8,25 @@
     android:padding="@dimen/dp_8"
     android:background="@color/white">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circleShapeImage"
+        android:id="@+id/siv_head"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="标题名字"
+        android:text="名字"
         android:textSize="@dimen/sp_14"
         android:id="@+id/tv_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintStart_toEndOf="@+id/siv_head"
+        app:layout_constraintTop_toTopOf="@+id/siv_head"
+        app:layout_constraintBottom_toBottomOf="@+id/siv_head"
         android:textColor="@color/textColor"/>
     <TextView
         android:layout_width="wrap_content"
@@ -25,11 +34,10 @@
         android:text="已催付款 10 次"
         android:textSize="@dimen/sp_13"
         android:id="@+id/tv_content"
-        android:visibility="gone"
         android:layout_marginStart="@dimen/dp_10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_name"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="@+id/siv_head"
+        app:layout_constraintBottom_toBottomOf="@+id/siv_head"
         android:textColor="@color/textColor_999999"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,7 +45,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/recyclerView"
         android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/siv_head"/>
 
 
 

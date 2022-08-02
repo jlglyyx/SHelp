@@ -210,6 +210,8 @@ interface AppConstant {
 
         const val USER_INFO = "user_info"
 
+        const val LOGIN_USER_TYPE = "login_user_type"
+
         const val USER_ID = "userId"
 
         const val PAGE_SIZE = "pageSize"

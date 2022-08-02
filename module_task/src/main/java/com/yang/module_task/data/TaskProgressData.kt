@@ -11,6 +11,12 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
  */
 class TaskProgressData(var mItemType:Int,var mLevel:Int): AbstractExpandableItem<TaskProgressData>(),MultiItemEntity {
 
+    var progressList:MutableList<TaskProgressItemData>? = mutableListOf<TaskProgressItemData>().apply {
+        add(TaskProgressItemData("开始任务",true))
+        add(TaskProgressItemData("提交任务凭证",false))
+        add(TaskProgressItemData("提交支付凭证",false))
+        add(TaskProgressItemData("提交评价凭证",false))
+    }
 
     override fun getLevel(): Int {
         return mLevel
@@ -19,6 +25,8 @@ class TaskProgressData(var mItemType:Int,var mLevel:Int): AbstractExpandableItem
     override fun getItemType(): Int {
         return mItemType
     }
+    data class TaskProgressItemData(val progress:String,val complete:Boolean){
 
+    }
 
 }

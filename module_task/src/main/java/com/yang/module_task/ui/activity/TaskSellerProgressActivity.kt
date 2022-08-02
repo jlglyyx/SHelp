@@ -15,6 +15,7 @@ import com.yang.lib_common.util.*
 import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_task.R
 import com.yang.module_task.databinding.ActTaskSellerProgressBinding
+import com.yang.module_task.dialog.TaskDetailDialog
 
 /**
  * @ClassName: TaskSellerProgressActivity
@@ -74,6 +75,10 @@ class TaskSellerProgressActivity :BaseActivity<ActTaskSellerProgressBinding>(){
                 }
                 XPopup.Builder(this@TaskSellerProgressActivity).asCustom(confirmDialog).show()
             }
+        }
+
+        mViewBinding.tvDetail.clicks().subscribe {
+            XPopup.Builder(this).asCustom(TaskDetailDialog(this)).show()
         }
 
         mViewBinding.btPay.clicks().subscribe {

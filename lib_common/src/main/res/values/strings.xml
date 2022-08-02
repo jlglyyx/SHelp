@@ -31,6 +31,9 @@
 
     <string name="string_password_digits">~!@#$%^&amp;*():";',./\|[]{}?-=+_0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 
+    <string name="string_user_type">注册类型</string>
+    <string name="string_buyer">买家</string>
+    <string name="string_seller">卖家</string>
 
 
     <string name="string_change_password_ing">正在修改密码…</string>
@@ -52,7 +55,7 @@
     <string name="string_login_out_ing">正在退出登录…</string>
     <string name="string_login_out_success">退出登录成功!</string>
     <string name="string_login_out_fail">退出登录失败!</string>
-
+    <string name="string_close_application">再按一次退出应用</string>
 
 
 </resources>

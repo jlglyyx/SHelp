@@ -14,6 +14,7 @@ import com.yang.lib_common.constant.AppConstant
 import com.yang.lib_common.proxy.InjectViewModelProxy
 import com.yang.lib_common.util.buildARouter
 import com.yang.lib_common.util.px2dip
+import com.yang.lib_common.util.showShort
 import com.yang.module_main.R
 import com.yang.module_main.databinding.ActMainBinding
 import com.yang.module_main.viewmodel.MainViewModel
@@ -31,6 +32,8 @@ class MainActivity : BaseActivity<ActMainBinding>() {
     private var mImages = arrayListOf(R.drawable.iv_home,R.drawable.iv_mine, R.drawable.iv_mine)
 
     private var mSelectImages = arrayListOf(R.drawable.iv_home_select, R.drawable.iv_mine_select,R.drawable.iv_mine_select)
+
+    private var lastTime = 0L
 
     override fun initViewBinding(): ActMainBinding {
         return bind(ActMainBinding::inflate)
@@ -106,5 +109,17 @@ class MainActivity : BaseActivity<ActMainBinding>() {
 
         InjectViewModelProxy.inject(this)
 
+    }
+
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
+        val currentTimeMillis = System.currentTimeMillis()
+        if (currentTimeMillis-lastTime > 1000){
+            lastTime = currentTimeMillis
+            showShort(getString(R.string.string_close_application))
+        }else{
+            moveTaskToBack(true)
+        }
     }
 }

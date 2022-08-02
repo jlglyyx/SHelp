@@ -33,6 +33,8 @@ class LoginActivity:BaseActivity<ActLoginBinding>() {
     @InjectViewModel
     lateinit var mainViewModel: MainViewModel
 
+
+
     override fun initViewBinding(): ActLoginBinding {
         return bind(ActLoginBinding::inflate)
     }
@@ -75,6 +77,15 @@ class LoginActivity:BaseActivity<ActLoginBinding>() {
         mViewBinding.tvClose.clicks().subscribe {
             finish()
         }
+
+        mViewBinding.rgUserType.setOnCheckedChangeListener { group, checkedId ->
+            mainViewModel.loginUserType = if (checkedId == R.id.rb_user_buyer){
+                0
+            }else {
+                1
+            }
+        }
+
         initTextChangedListener()
     }
 

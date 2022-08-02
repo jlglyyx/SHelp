@@ -43,7 +43,9 @@ class MainViewModel @Inject constructor(
 
     var checkStatus = true
 
-    var pageNum = 1;
+    var pageNum = 1
+
+    var loginUserType = 0
 
     val taskLiveData = MutableLiveData<MutableList<TaskData>>()
 
@@ -89,6 +91,7 @@ class MainViewModel @Inject constructor(
             finishActivity()
         },{
             getDefaultMMKV().putString(AppConstant.Constant.LOGIN_INFO, LoginData("token","id").toJson())
+            getDefaultMMKV().putInt(AppConstant.Constant.LOGIN_USER_TYPE, loginUserType)
             getDefaultMMKV().putInt(AppConstant.Constant.LOGIN_STATUS,AppConstant.Constant.LOGIN_SUCCESS)
             LiveDataBus.instance.with(AppConstant.Constant.LOGIN_STATUS).postValue(AppConstant.Constant.LOGIN_SUCCESS)
             finishActivity()
