@@ -3,8 +3,11 @@
     package="com.yang.module_mine">
 
     <application>
-        <activity android:name=".ui.activity.MineSettingActivity"/>
-        <activity android:name=".ui.activity.MineChangePasswordActivity"/>
-        <activity android:name=".ui.activity.MineChangePhoneActivity"/>
+        <activity android:name=".ui.activity.MineSettingActivity" />
+        <activity android:name=".ui.activity.MineChangePasswordActivity" />
+        <activity android:name=".ui.activity.MineChangePhoneActivity" />
+        <activity
+            android:name=".ui.activity.WebActivity"
+            android:exported="false" />
     </application>
 </manifest>

@@ -59,7 +59,7 @@
                     android:layout_marginTop="@dimen/dp_5"
                     android:padding="@dimen/dp_5"
                     android:id="@+id/tv_task_title"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:text="标题标题标题标题标题标题"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -89,7 +89,7 @@
                     android:id="@+id/tv_task_content"
                     android:gravity="top"
                     android:text="内容内容内容内容内容"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
             <View
@@ -116,7 +116,7 @@
                     android:padding="@dimen/dp_5"
                     android:text="店铺名称店铺名称"
                     android:gravity="top"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:id="@+id/tv_task_shop"
                     android:textIsSelectable="true"
                     android:textSize="@dimen/sp_15" />
@@ -146,7 +146,7 @@
                     android:text="请输入宝贝链接"
                     android:minLines="3"
                     android:gravity="top"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:id="@+id/tv_task_link"
                     android:textIsSelectable="true"
                     android:textSize="@dimen/sp_15" />
@@ -177,7 +177,7 @@
                     android:minLines="3"
                     android:gravity="top"
                     android:textIsSelectable="true"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:id="@+id/tv_task_key_word"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -219,7 +219,7 @@
                     android:layout_marginEnd="@dimen/dp_5"
                     android:id="@+id/tv_task_number"
                     android:text="0"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:inputType="number"
                     android:textSize="@dimen/sp_15" />
                 <TextView
@@ -237,7 +237,7 @@
                     android:layout_weight="1"
                     android:id="@+id/tv_task_price"
                     android:text="0.0"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:digits="0123456789."
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -269,7 +269,7 @@
                     android:text="10"
                     android:digits="0123456789."
                     android:gravity="top"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
         </LinearLayout>

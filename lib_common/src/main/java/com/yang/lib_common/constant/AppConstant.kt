@@ -158,11 +158,13 @@ interface AppConstant {
 
         const val MINE_SETTING_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineSettingActivity"
 
-
+        const val MINE_WEB_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/WebActivity"
 
         const val MINE_FRAGMENT = "/$MODULE_MINE/$FRAGMENT/MineFragment"
 
         const val MINE_EXCHANGE_STATUS_FRAGMENT = "/$MODULE_MINE/$FRAGMENT/MineExchangeStatusFragment"
+
+
 
 
     }

@@ -50,6 +50,7 @@
                     android:layout_marginTop="@dimen/dp_5"
                     android:padding="@dimen/dp_5"
                     android:id="@+id/et_task_title"
+                    android:textColor="@color/textColor"
                     android:hint="请输入任务标题（20字）"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -79,6 +80,7 @@
                     android:minLines="3"
                     android:id="@+id/et_task_content"
                     android:gravity="top"
+                    android:textColor="@color/textColor"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
             <View
@@ -105,6 +107,7 @@
                     android:padding="@dimen/dp_5"
                     android:hint="请输入店铺名称"
                     android:gravity="top"
+                    android:textColor="@color/textColor"
                     android:id="@+id/et_task_shop"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -133,6 +136,7 @@
                     android:hint="请输入宝贝链接"
                     android:minLines="3"
                     android:gravity="top"
+                    android:textColor="@color/textColor"
                     android:id="@+id/et_task_link"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -161,6 +165,7 @@
                     android:hint="请输入宝贝关键词（多个宝贝关键词用，隔开）"
                     android:minLines="3"
                     android:gravity="top"
+                    android:textColor="@color/textColor"
                     android:id="@+id/et_task_key_word"
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -202,6 +207,7 @@
                     android:layout_marginEnd="@dimen/dp_5"
                     android:id="@+id/et_task_number"
                     android:hint="0"
+                    android:textColor="@color/textColor"
                     android:inputType="number"
                     android:textSize="@dimen/sp_15" />
                 <TextView
@@ -219,6 +225,7 @@
                     android:layout_weight="1"
                     android:id="@+id/et_task_price"
                     android:hint="0.0"
+                    android:textColor="@color/textColor"
                     android:digits="0123456789."
                     android:textSize="@dimen/sp_15" />
             </LinearLayout>
@@ -246,6 +253,7 @@
                     android:background="@null"
                     android:layout_marginTop="@dimen/dp_5"
                     android:padding="@dimen/dp_5"
+                    android:textColor="@color/textColor"
                     android:id="@+id/et_task_commission"
                     android:hint="请输入每单商品佣金"
                     android:digits="0123456789."

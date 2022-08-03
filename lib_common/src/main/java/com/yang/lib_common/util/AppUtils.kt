@@ -112,6 +112,7 @@ fun getFilePath(
     path: String = "${Environment.getExternalStorageDirectory()}/MFiles/picture",
     mutableListOf: MutableList<String> = mutableListOf()
 ): MutableList<String> {
+    //val file = File("${Environment.getExternalStorageDirectory()}/MFiles/picture")
     //val file = File("${Environment.getExternalStorageDirectory()}/DCIM/Camera")
     val file = File(path)
     if (file.isDirectory) {

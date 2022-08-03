@@ -98,7 +98,7 @@ class MineFragment : BaseFragment<FraMineBinding>() {
 
     private fun initRecyclerView() {
         moreFunctionAdapter = MoreFunctionAdapter(mutableListOf<MoreFunctionData>().apply {
-            add(MoreFunctionData(R.drawable.iv_home,"消息通知",AppConstant.RoutePath.LOGIN_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_home,"消息通知",AppConstant.RoutePath.MINE_WEB_ACTIVITY))
             add(MoreFunctionData(R.drawable.iv_add,"联系客服",AppConstant.RoutePath.LOGIN_ACTIVITY))
             add(MoreFunctionData(R.drawable.iv_add,"意见反馈",AppConstant.RoutePath.LOGIN_ACTIVITY))
             add(MoreFunctionData(R.drawable.iv_add,"关于App",AppConstant.RoutePath.LOGIN_ACTIVITY))
