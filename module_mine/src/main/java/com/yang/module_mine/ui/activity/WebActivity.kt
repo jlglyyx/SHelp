@@ -9,6 +9,7 @@ import com.tencent.smtt.sdk.*
 import com.yang.lib_common.base.ui.activity.BaseActivity
 import com.yang.lib_common.base.ui.fragment.BaseFragment
 import com.yang.lib_common.constant.AppConstant
+import com.yang.lib_common.util.showShort
 import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_mine.databinding.ActWebBinding
 
@@ -21,7 +22,7 @@ import com.yang.module_mine.databinding.ActWebBinding
 @Route(path = AppConstant.RoutePath.MINE_WEB_ACTIVITY)
 class WebActivity:BaseActivity<ActWebBinding>() {
 
-    private var url = "http://192.168.158.123:8080/"
+    private var url = "http://192.168.158.123:8080/messageList/"
 
     override fun initViewBinding(): ActWebBinding {
         return bind(ActWebBinding::inflate)
@@ -55,6 +56,12 @@ class WebActivity:BaseActivity<ActWebBinding>() {
                 }else{
                     finish()
                 }
+            }
+        }
+
+        mViewBinding.commonToolBar.imageAddCallBack = object : CommonToolBar.ImageAddCallBack{
+            override fun imageAddClickListener() {
+                mViewBinding.webView.loadUrl("javascript:a()")
             }
 
         }
@@ -127,6 +134,10 @@ class WebActivity:BaseActivity<ActWebBinding>() {
     @JavascriptInterface
     fun setTitle(title:String){
         mViewBinding.commonToolBar.centerContent = title
+    }
+    @JavascriptInterface
+    fun show(title:String){
+        showShort(title)
     }
 
 

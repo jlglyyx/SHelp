@@ -13,6 +13,8 @@ interface AppConstant {
 //        const val BASE_URL = "http://jlgl.free.idcfengye.com/"
 //        const val BASE_URL = "http://10.16.242.28:20000/"
 
+        const val BASE_WEB_URL = "http://192.168.158.123:8080"
+
         const val TAG = "RemoteModule"
 
         const val TAG_LOG = "httpLog"
@@ -159,6 +161,16 @@ interface AppConstant {
         const val MINE_SETTING_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineSettingActivity"
 
         const val MINE_WEB_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/WebActivity"
+
+        const val MINE_ABOUT_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/AboutActivity"
+
+        const val MINE_MY_BALANCE_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MyBalanceActivity"
+
+        const val MINE_MY_RIGHTS_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MyRightsActivity"
+
+        const val MINE_MY_INFO_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MyInfoActivity"
+
+        const val MINE_TASK_HISTORY_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/TaskHistoryActivity"
 
         const val MINE_FRAGMENT = "/$MODULE_MINE/$FRAGMENT/MineFragment"
 

@@ -163,18 +163,21 @@
                     android:layout_marginTop="@dimen/dp_10"
                     app:itemLeftContent="我的余额"
                     app:itemLeftImgVisible="false"
+                    android:id="@+id/icv_my_balance"
                     app:itemRightContent="￥16.05" />
 
                 <com.yang.lib_common.widget.ItemContentView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:itemLeftContent="我的权益"
+                    android:id="@+id/icv_my_rights"
                     app:itemLeftImgVisible="false" />
 
                 <com.yang.lib_common.widget.ItemContentView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:itemLeftContent="任务记录"
+                    android:id="@+id/icv_task_history"
                     app:itemLeftImgVisible="false" />
 
             </LinearLayout>

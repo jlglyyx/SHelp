@@ -56,6 +56,21 @@ class MineFragment : BaseFragment<FraMineBinding>() {
         mViewBinding.tvLogin.clicks().subscribe {
             buildARouterLogin(requireContext())
         }
+        mViewBinding.clHeadLogin.clicks().subscribe {
+            buildARouter(AppConstant.RoutePath.MINE_MY_INFO_ACTIVITY).navigation()
+        }
+        mViewBinding.icvMyBalance.clicks().subscribe {
+            buildARouter(AppConstant.RoutePath.MINE_MY_BALANCE_ACTIVITY).navigation()
+        }
+        mViewBinding.icvMyRights.clicks().subscribe {
+            buildARouter(AppConstant.RoutePath.MINE_MY_RIGHTS_ACTIVITY).navigation()
+        }
+        mViewBinding.icvTaskHistory.clicks().subscribe {
+            buildARouter(AppConstant.RoutePath.MINE_TASK_HISTORY_ACTIVITY).navigation()
+        }
+        mViewBinding.ivErCode.clicks().subscribe {
+
+        }
         initBanner()
         initRecyclerView()
 
@@ -98,17 +113,17 @@ class MineFragment : BaseFragment<FraMineBinding>() {
 
     private fun initRecyclerView() {
         moreFunctionAdapter = MoreFunctionAdapter(mutableListOf<MoreFunctionData>().apply {
-            add(MoreFunctionData(R.drawable.iv_home,"消息通知",AppConstant.RoutePath.MINE_WEB_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_add,"联系客服",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_add,"意见反馈",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_add,"关于App",AppConstant.RoutePath.LOGIN_ACTIVITY))
-            add(MoreFunctionData(R.drawable.iv_setting,"设置",AppConstant.RoutePath.MINE_SETTING_ACTIVITY))
+            add(MoreFunctionData(R.drawable.iv_message,"消息通知",AppConstant.RoutePath.MINE_WEB_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/messageList"))
+            add(MoreFunctionData(R.drawable.iv_kf,"客服中心",AppConstant.RoutePath.MINE_WEB_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/service/customService"))
+            add(MoreFunctionData(R.drawable.iv_suggestion,"意见反馈",AppConstant.RoutePath.MINE_WEB_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/suggestion"))
+            add(MoreFunctionData(R.drawable.iv_about,"关于App",AppConstant.RoutePath.MINE_ABOUT_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/messageList"))
+            add(MoreFunctionData(R.drawable.iv_setting,"设置",AppConstant.RoutePath.MINE_SETTING_ACTIVITY,""))
         })
 
         moreFunctionAdapter.setOnItemClickListener { adapter, view, position ->
                 val item = moreFunctionAdapter.getItem(position)
             item?.let {
-                buildARouter(it.routePath).navigation()
+                buildARouter(it.routePath).withString(AppConstant.Constant.TITLE,it.name).withString(AppConstant.Constant.URL,it.url).navigation()
             }
         }
 

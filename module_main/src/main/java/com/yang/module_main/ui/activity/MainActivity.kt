@@ -29,9 +29,9 @@ class MainActivity : BaseActivity<ActMainBinding>() {
 
     private var mTitles = arrayListOf("首页", "工作台","我的")
 
-    private var mImages = arrayListOf(R.drawable.iv_home,R.drawable.iv_mine, R.drawable.iv_mine)
+    private var mImages = arrayListOf(R.drawable.iv_home,R.drawable.iv_task, R.drawable.iv_mine)
 
-    private var mSelectImages = arrayListOf(R.drawable.iv_home_select, R.drawable.iv_mine_select,R.drawable.iv_mine_select)
+    private var mSelectImages = arrayListOf(R.drawable.iv_home_select, R.drawable.iv_task_select,R.drawable.iv_mine_select)
 
     private var lastTime = 0L
 
