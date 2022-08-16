@@ -1,16 +1,23 @@
 package com.yang.module_task.ui.fragment
 
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.lxj.xpopup.XPopup
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.yang.apt_annotation.annotain.InjectViewModel
 import com.yang.lib_common.base.ui.fragment.BaseLazyFragment
 import com.yang.lib_common.bus.event.UIChangeLiveData
 import com.yang.lib_common.constant.AppConstant
+import com.yang.lib_common.dialog.FilterTaskDialog
 import com.yang.lib_common.proxy.InjectViewModelProxy
 import com.yang.lib_common.util.buildARouter
+import com.yang.lib_common.util.clicks
 import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_task.adapter.TaskAdapter
 import com.yang.module_task.viewmodel.TaskViewModel
@@ -45,6 +52,35 @@ class TaskFragment : BaseLazyFragment<FraTaskBinding>(), OnRefreshLoadMoreListen
             }
 
         }
+
+        mViewBinding.ivX.clicks().subscribe {
+            mViewBinding.etSearch.setText("")
+        }
+
+        mViewBinding.tvSearch.clicks().subscribe {
+            onRefresh(mViewBinding.includeContainer.smartRefreshLayout)
+        }
+        mViewBinding.tvFilter.clicks().subscribe {
+            XPopup.Builder(requireContext()).asCustom(FilterTaskDialog(requireContext())).show()
+        }
+
+        mViewBinding.etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (TextUtils.isEmpty(s.toString())){
+                    mViewBinding.ivX.visibility = View.GONE
+                }else{
+                    mViewBinding.ivX.visibility = View.VISIBLE
+                }
+            }
+
+        })
         initSmartRefreshLayout()
         initRecyclerView()
     }
@@ -63,12 +99,14 @@ class TaskFragment : BaseLazyFragment<FraTaskBinding>(), OnRefreshLoadMoreListen
     private fun initRecyclerView() {
         taskAdapter = TaskAdapter(mutableListOf())
         taskAdapter.setOnItemClickListener { adapter, view, position ->
-            if (position == 1){
-                buildARouter(AppConstant.RoutePath.TASK_SELLER_PROGRESS_ACTIVITY).navigation()
-            }else{
-                buildARouter(AppConstant.RoutePath.TASK_BUYER_PROGRESS_ACTIVITY).navigation()
+            val item = taskAdapter.getItem(position)
+            item?.let {
+                if (it.mItemType == 2){
+                    buildARouter(AppConstant.RoutePath.TASK_BUYER_PROGRESS_ACTIVITY).navigation()
+                }else{
+                    buildARouter(AppConstant.RoutePath.TASK_SELLER_PROGRESS_ACTIVITY).navigation()
+                }
             }
-
         }
         mViewBinding.includeContainer.recyclerView.layoutManager =
             LinearLayoutManager(requireContext())

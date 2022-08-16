@@ -13,7 +13,8 @@ interface AppConstant {
 //        const val BASE_URL = "http://jlgl.free.idcfengye.com/"
 //        const val BASE_URL = "http://10.16.242.28:20000/"
 
-        const val BASE_WEB_URL = "http://192.168.158.123:8080"
+        const val BASE_WEB_URL = "http://192.168.174.197:8080/#"
+
 
         const val TAG = "RemoteModule"
 

@@ -1,20 +1,27 @@
 package com.yang.module_main.ui.fragment
 
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.gson.Gson
+import com.lxj.xpopup.XPopup
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.yang.apt_annotation.annotain.InjectViewModel
 import com.yang.lib_common.base.ui.fragment.BaseLazyFragment
 import com.yang.lib_common.bus.event.UIChangeLiveData
 import com.yang.lib_common.constant.AppConstant
+import com.yang.lib_common.dialog.FilterTaskDialog
 import com.yang.lib_common.proxy.InjectViewModelProxy
 import com.yang.lib_common.util.buildARouter
+import com.yang.lib_common.util.clicks
 import com.yang.lib_common.util.getDefaultMMKV
 import com.yang.lib_common.widget.CommonToolBar
 import com.yang.module_main.adapter.TaskAdapter
@@ -54,6 +61,37 @@ class MainFragment : BaseLazyFragment<FraMainBinding>(), OnRefreshLoadMoreListen
             }
 
         }
+
+        mViewBinding.ivX.clicks().subscribe {
+            mViewBinding.etSearch.setText("")
+        }
+
+        mViewBinding.tvFilter.clicks().subscribe {
+            XPopup.Builder(requireContext()).asCustom(FilterTaskDialog(requireContext())).show()
+        }
+
+        mViewBinding.tvSearch.clicks().subscribe {
+            onRefresh(mViewBinding.includeContainer.smartRefreshLayout)
+        }
+
+        mViewBinding.etSearch.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (TextUtils.isEmpty(s.toString())){
+                    mViewBinding.ivX.visibility = View.GONE
+                }else{
+                    mViewBinding.ivX.visibility = View.VISIBLE
+                }
+            }
+
+        })
+
         initSmartRefreshLayout()
         initRecyclerView()
     }

@@ -4,13 +4,15 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import cn.sharesdk.framework.Platform
+import cn.sharesdk.framework.PlatformActionListener
+import cn.sharesdk.framework.ShareSDK
+import cn.sharesdk.tencent.qq.QQ
+import cn.sharesdk.wechat.friends.Wechat
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.google.gson.Gson
 import com.yang.apt_annotation.annotain.InjectViewModel
 import com.yang.lib_common.base.ui.activity.BaseActivity
-import com.yang.lib_common.bus.event.LiveDataBus
 import com.yang.lib_common.bus.event.UIChangeLiveData
 import com.yang.lib_common.constant.AppConstant
 import com.yang.lib_common.proxy.InjectViewModelProxy
@@ -19,7 +21,8 @@ import com.yang.module_main.R
 import com.yang.module_main.databinding.ActLoginBinding
 import com.yang.module_main.viewmodel.MainViewModel
 import kotlinx.coroutines.*
-import javax.inject.Inject
+import java.util.HashMap
+
 
 /**
  * @ClassName: LoginActivity
@@ -69,6 +72,27 @@ class LoginActivity:BaseActivity<ActLoginBinding>() {
         mViewBinding.btToLogin.clicks().subscribe {
             hideSoftInput(this,mViewBinding.btToLogin)
             mainViewModel.login()
+        }
+        mViewBinding.tvOtherToLogin.clicks().subscribe {
+            //设置授权登录的平台
+            val plat = ShareSDK.getPlatform(QQ.NAME)
+            //授权回调监听，监听oncomplete，onerror，oncancel三种状态
+            plat.platformActionListener = object : PlatformActionListener{
+                override fun onComplete(p0: Platform?, p1: Int, p2: HashMap<String, Any>?) {
+                }
+
+                override fun onError(p0: Platform?, p1: Int, p2: Throwable?) {
+                }
+
+                override fun onCancel(p0: Platform?, p1: Int) {
+                }
+
+            }
+            //抖音登录适配安卓9.0
+            //ShareSDK.setActivity(MainActivity.this);
+            plat.showUser(null)
+            //plat.authorize();
+
         }
 
         mViewBinding.cbServiceAgreement.setOnCheckedChangeListener { buttonView, isChecked ->

@@ -3,6 +3,7 @@ package com.yang.module_main.viewmodel
 import android.app.Application
 import android.text.TextUtils
 import androidx.lifecycle.MutableLiveData
+import com.mob.MobSDK
 import com.yang.lib_common.base.viewmodel.BaseViewModel
 import com.yang.lib_common.bus.event.LiveDataBus
 import com.yang.lib_common.constant.AppConstant
@@ -80,7 +81,7 @@ class MainViewModel @Inject constructor(
             showShort("请勾选协议")
             return
         }
-
+        MobSDK.submitPolicyGrantResult(checkStatus)
         launch({
             val params = mutableMapOf<String,Any>()
             params[AppConstant.Constant.PHONE] = phoneText

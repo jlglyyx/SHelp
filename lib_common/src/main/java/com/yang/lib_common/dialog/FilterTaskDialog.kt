@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.RadioGroup
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amap.api.location.AMapLocation
 import com.amap.api.services.help.Inputtips
@@ -31,7 +32,7 @@ class FilterTaskDialog(context: Context) : BottomPopupView(context) {
 
 
     private val mBinding by lazy {
-        DialogFilterTaskBinding.inflate(LayoutInflater.from(context))
+        DialogFilterTaskBinding.bind(bottomPopupContainer.getChildAt(0))
     }
     override fun getImplLayoutId(): Int {
         return R.layout.dialog_filter_task
@@ -40,12 +41,9 @@ class FilterTaskDialog(context: Context) : BottomPopupView(context) {
     override fun onCreate() {
         super.onCreate()
 
-        mBinding.radioGroup.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener{
-            override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+        mBinding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
 
-            }
-
-        })
+        }
 
         mBinding.tvCancel.clicks().subscribe {
             clear()

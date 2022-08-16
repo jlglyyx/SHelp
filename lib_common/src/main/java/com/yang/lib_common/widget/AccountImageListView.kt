@@ -44,7 +44,7 @@ class AccountImageListView : LinearLayout {
 
     private fun createView(list:MutableList<String>){
 
-
+        removeAllViews()
         for (i in 0 until list.size) {
             val shapeAbleImageView = ShapeableImageView(context)
             shapeAbleImageView.shapeAppearanceModel =

@@ -133,6 +133,18 @@
         android:id="@+id/bt_to_login"
         android:background="@drawable/selector_commit_button_bg"
         app:layout_constraintTop_toBottomOf="@+id/rg_user_type"/>
+    <TextView
+        android:id="@+id/tv_other_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/bt_to_login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="@dimen/dp_10"
+        android:textColor="@color/textColor_999999"
+        android:textSize="@dimen/sp_12"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="第三方账号登录"/>
 
     <LinearLayout
         android:layout_width="match_parent"

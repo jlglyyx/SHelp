@@ -5,6 +5,7 @@ if (isModule.toBoolean()) {
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.mob.sdk'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -29,8 +30,8 @@ android {
             }
         }
 
-        ndk{
-            abiFilters  "armeabi-v7a","arm64-v8a"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
         }
     }
 
@@ -74,5 +75,52 @@ android {
 //        implementation project(path: ':apt-annotation')
 //        implementation project(path: ':apt-processor')
     }
+
 }
+
+
+MobSDK {
+
+    appKey "367673ee3df5a"
+    appSecret "51dd34d5479d59f9f7b9913db81be70a"
+    ShareSDK {
+        devInfo {
+            Wechat {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                userName "gh_afb25ac019c9"
+                path "pages/index/index.html?id=1"
+                withShareTicket true
+                miniprogramType 2
+            }
+            WechatMoments {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+            }
+
+            QQ {
+                id 7
+                sortId 7
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+                shareByAppClient true
+                bypassApproval false
+                enable true
+            }
+
+            QZone {
+                id 3
+                sortId 3
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+                shareByAppClient true
+                bypassApproval false
+                enable true
+            }
+
+        }
+
+    }
+}
+
 

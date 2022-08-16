@@ -29,13 +29,13 @@ class AboutActivity:BaseActivity<ActAboutBinding>() {
 
         }
         mViewBinding.icvFunctionIntroduce.clicks().subscribe {
-            buildARouter(AppConstant.RoutePath.MINE_WEB_ACTIVITY).withString(AppConstant.Constant.TITLE,"功能介绍").withString(AppConstant.Constant.URL,AppConstant.ClientInfo.BASE_WEB_URL+"/about/functionIntroduce").navigation()
+            buildARouter(AppConstant.RoutePath.MINE_WEB_ACTIVITY).withString(AppConstant.Constant.TITLE,"功能介绍").withString(AppConstant.Constant.URL,AppConstant.ClientInfo.BASE_WEB_URL+"/pages/about/functionIntroduce").navigation()
         }
         mViewBinding.icvServiceProtocol.clicks().subscribe {
-            buildARouter(AppConstant.RoutePath.MINE_WEB_ACTIVITY).withString(AppConstant.Constant.TITLE,"服务协议").withString(AppConstant.Constant.URL,AppConstant.ClientInfo.BASE_WEB_URL+"/about/serviceProtocol").navigation()
+            buildARouter(AppConstant.RoutePath.MINE_WEB_ACTIVITY).withString(AppConstant.Constant.TITLE,"服务协议").withString(AppConstant.Constant.URL,AppConstant.ClientInfo.BASE_WEB_URL+"/pages/about/serviceProtocol").navigation()
         }
         mViewBinding.icvPrivacyPolicy.clicks().subscribe {
-            buildARouter(AppConstant.RoutePath.MINE_WEB_ACTIVITY).withString(AppConstant.Constant.TITLE,"隐私政策").withString(AppConstant.Constant.URL,AppConstant.ClientInfo.BASE_WEB_URL+"/about/privacyPolicy").navigation()
+            buildARouter(AppConstant.RoutePath.MINE_WEB_ACTIVITY).withString(AppConstant.Constant.TITLE,"隐私政策").withString(AppConstant.Constant.URL,AppConstant.ClientInfo.BASE_WEB_URL+"/pages/about/privacyPolicy").navigation()
         }
 
     }

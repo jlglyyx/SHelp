@@ -1,21 +1,29 @@
 package com.yang.module_mine.ui.fragment
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.graphics.Bitmap
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import cn.sharesdk.framework.Platform
+import cn.sharesdk.framework.Platform.ShareParams
+import cn.sharesdk.framework.ShareSDK
+import cn.sharesdk.tencent.qq.QQ
+import cn.sharesdk.wechat.friends.Wechat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.bumptech.glide.Glide
-import com.google.gson.Gson
 import com.huawei.hms.hmsscankit.ScanUtil
+import com.lxj.xpopup.XPopup
 import com.yang.apt_annotation.annotain.InjectViewModel
 import com.yang.lib_common.adapter.MBannerAdapter
 import com.yang.lib_common.base.ui.fragment.BaseFragment
-import com.yang.lib_common.base.ui.fragment.BaseLazyFragment
 import com.yang.lib_common.bus.event.LiveDataBus
 import com.yang.lib_common.constant.AppConstant
 import com.yang.lib_common.data.BannerBean
 import com.yang.lib_common.data.LoginData
+import com.yang.lib_common.dialog.ShareDialog
 import com.yang.lib_common.proxy.InjectViewModelProxy
 import com.yang.lib_common.util.*
 import com.yang.module_mine.R
@@ -23,9 +31,8 @@ import com.yang.module_mine.adapter.MoreFunctionAdapter
 import com.yang.module_mine.data.MoreFunctionData
 import com.yang.module_mine.databinding.FraMineBinding
 import com.yang.module_mine.viewmodel.MineViewModel
-import com.youth.banner.adapter.BannerAdapter
 import com.youth.banner.indicator.CircleIndicator
-import javax.inject.Inject
+
 
 /**
  * @ClassName: MineFragment
@@ -70,13 +77,47 @@ class MineFragment : BaseFragment<FraMineBinding>() {
         }
         mViewBinding.ivErCode.clicks().subscribe {
 
+
+            XPopup.Builder(requireContext()).asCustom(ShareDialog(requireContext()).apply {
+                onItemClickListener = object : ShareDialog.OnItemClickListener{
+                    override fun onCancelClickListener() {
+                    }
+
+                    override fun onConfirmClickListener(type: Int) {
+                        when(type){
+                            0 ->{
+                                val platform = ShareSDK.getPlatform(QQ.NAME)
+                                val shareParams = ShareParams()
+                                shareParams.shareType = Platform.SHARE_TEXT
+                                shareParams.title = "测试分享的标题"
+                                shareParams.text = "测试文本"
+                                platform.share(shareParams)
+                            }
+                            1 ->{
+                                val platform = ShareSDK.getPlatform(Wechat.NAME)
+                                val shareParams = ShareParams()
+                                shareParams.shareType = Platform.SHARE_TEXT
+                                shareParams.title = "测试分享的标题"
+                                shareParams.text = "测试文本"
+                                platform.share(shareParams)
+                            }
+                            2 ->{
+                                val mClipboardManager = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                mClipboardManager.setPrimaryClip(ClipData.newPlainText(null, "复制复制复制"))
+                                showShort("复制成功!")
+                            }
+                        }
+                    }
+
+                }
+            }).show()
         }
         initBanner()
         initRecyclerView()
 
         val loginStatus = getDefaultMMKV().getInt(AppConstant.Constant.LOGIN_STATUS, -1)
         val loginUserType = getDefaultMMKV().getInt(AppConstant.Constant.LOGIN_USER_TYPE, 0)
-        if (loginStatus == AppConstant.Constant.LOGIN_SUCCESS){
+        if (loginStatus == AppConstant.Constant.LOGIN_SUCCESS) {
             mViewBinding.clHead.visibility = View.GONE
             mViewBinding.lottieAnimationView.visibility = View.GONE
             mViewBinding.clHeadLogin.visibility = View.VISIBLE
@@ -107,23 +148,59 @@ class MineFragment : BaseFragment<FraMineBinding>() {
         super.onResume()
         getDefaultMMKV().getString(AppConstant.Constant.LOGIN_INFO, "")
             ?.fromJson(LoginData::class.java)?.let {
-            mineViewModel.getUserInfo(it.id)
-        }
+                mineViewModel.getUserInfo(it.id)
+            }
     }
 
     private fun initRecyclerView() {
         moreFunctionAdapter = MoreFunctionAdapter(mutableListOf<MoreFunctionData>().apply {
-            add(MoreFunctionData(R.drawable.iv_message,"消息通知",AppConstant.RoutePath.MINE_WEB_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/messageList"))
-            add(MoreFunctionData(R.drawable.iv_kf,"客服中心",AppConstant.RoutePath.MINE_WEB_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/service/customService"))
-            add(MoreFunctionData(R.drawable.iv_suggestion,"意见反馈",AppConstant.RoutePath.MINE_WEB_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/suggestion"))
-            add(MoreFunctionData(R.drawable.iv_about,"关于App",AppConstant.RoutePath.MINE_ABOUT_ACTIVITY,AppConstant.ClientInfo.BASE_WEB_URL+"/messageList"))
-            add(MoreFunctionData(R.drawable.iv_setting,"设置",AppConstant.RoutePath.MINE_SETTING_ACTIVITY,""))
+            add(
+                MoreFunctionData(
+                    R.drawable.iv_message,
+                    "消息通知",
+                    AppConstant.RoutePath.MINE_WEB_ACTIVITY,
+                    AppConstant.ClientInfo.BASE_WEB_URL + "/pages/message/messageList"
+                )
+            )
+            add(
+                MoreFunctionData(
+                    R.drawable.iv_kf,
+                    "客服中心",
+                    AppConstant.RoutePath.MINE_WEB_ACTIVITY,
+                    AppConstant.ClientInfo.BASE_WEB_URL + "/pages/service/customService"
+                )
+            )
+            add(
+                MoreFunctionData(
+                    R.drawable.iv_suggestion,
+                    "意见反馈",
+                    AppConstant.RoutePath.MINE_WEB_ACTIVITY,
+                    AppConstant.ClientInfo.BASE_WEB_URL + "/pages/suggestion/suggestion"
+                )
+            )
+            add(
+                MoreFunctionData(
+                    R.drawable.iv_about,
+                    "关于App",
+                    AppConstant.RoutePath.MINE_ABOUT_ACTIVITY,
+                    AppConstant.ClientInfo.BASE_WEB_URL + "/pages/message/messageList"
+                )
+            )
+            add(
+                MoreFunctionData(
+                    R.drawable.iv_setting,
+                    "设置",
+                    AppConstant.RoutePath.MINE_SETTING_ACTIVITY,
+                    ""
+                )
+            )
         })
 
         moreFunctionAdapter.setOnItemClickListener { adapter, view, position ->
-                val item = moreFunctionAdapter.getItem(position)
+            val item = moreFunctionAdapter.getItem(position)
             item?.let {
-                buildARouter(it.routePath).withString(AppConstant.Constant.TITLE,it.name).withString(AppConstant.Constant.URL,it.url).navigation()
+                buildARouter(it.routePath).withString(AppConstant.Constant.TITLE, it.name)
+                    .withString(AppConstant.Constant.URL, it.url).navigation()
             }
         }
 
@@ -147,7 +224,7 @@ class MineFragment : BaseFragment<FraMineBinding>() {
         mineViewModel.userInfoData.observe(this, Observer {
             getDefaultMMKV().putString(AppConstant.Constant.USER_INFO, it.toJson())
             Glide.with(this).load(it.userImage).into(mViewBinding.sivHead)
-            if (null == buildBitmap){
+            if (null == buildBitmap) {
                 buildBitmap = ScanUtil.buildBitmap("sssssssssss", 500, 500)
                 mViewBinding.ivErCode.setImageBitmap(buildBitmap)
             }
