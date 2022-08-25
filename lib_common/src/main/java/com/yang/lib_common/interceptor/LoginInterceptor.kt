@@ -34,7 +34,7 @@ class LoginInterceptor : IInterceptor {
      * 需要登录操作页面
      */
     private var toLoginList = arrayListOf(
-        AppConstant.RoutePath.MINE_OTHER_PERSON_INFO_ACTIVITY,
+        AppConstant.RoutePath.MINE_USER_INFO_ACTIVITY,
         AppConstant.RoutePath.OPEN_VIP_ACTIVITY,
         AppConstant.RoutePath.MY_PUSH_ACTIVITY,
         AppConstant.RoutePath.MY_COLLECTION_ACTIVITY,

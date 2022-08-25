@@ -1,168 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/dp_10"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<TextView
-    android:id="@+id/tv_close"
-    android:text="@string/staring_close"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginTop="@dimen/dp_10"
-    android:fitsSystemWindows="true"
-    app:layout_constraintRight_toRightOf="parent"/>
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_desc"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/sp_18"
-        android:textStyle="bold"
-        android:text="@string/string_register_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_desc"
-        android:padding="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_10"
-        android:hint="请输入手机号"
-        android:inputType="phone"
-        android:maxLength="11"
-        android:maxLines="1"
-        android:textSize="@dimen/sp_15"
-        android:background="@drawable/layer_list_account_input"
-        android:id="@+id/et_phone"/>
-    <EditText
+    <com.yang.lib_common.widget.ImageScrollView
+        android:id="@+id/imageScrollView"
         android:layout_width="0dp"
-        android:padding="@dimen/dp_10"
-        android:layout_height="wrap_content"
-        app:layout_constraintRight_toLeftOf="@+id/tv_time"
-        app:layout_constraintEnd_toStartOf="@+id/tv_time"
-        app:layout_constraintTop_toBottomOf="@+id/et_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/layer_list_account_input"
-        android:layout_marginTop="@dimen/dp_10"
-        android:hint="请输入验证码"
-        android:inputType="number"
-        android:maxLength="6"
-        android:maxLines="1"
-        android:textSize="@dimen/sp_15"
-        android:id="@+id/et_verification_code"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/et_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_10"
-        android:background="@drawable/layer_list_account_input"
-        android:visibility="gone"
-        android:hint="请输入密码"
-        android:maxLines="1"
-        android:textSize="@dimen/sp_15"
-        android:inputType="textPassword"
-        android:id="@+id/et_password"/>
-
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="@string/string_get_verification"
-        android:gravity="center"
-        android:textSize="@dimen/sp_15"
-        android:paddingHorizontal="@dimen/dp_5"
-        android:minWidth="@dimen/dp_100"
-        app:layout_constraintTop_toTopOf="@+id/et_verification_code"
-        app:layout_constraintBottom_toBottomOf="@+id/et_verification_code"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <TextView
-        android:id="@+id/tv_login_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_15"
-        android:text="@string/string_login_account_password"
-        android:textColor="@color/textColor_999999"
-        app:layout_constraintTop_toTopOf="@+id/rg_user_type"
-        app:layout_constraintBottom_toBottomOf="@+id/rg_user_type"
-        app:layout_constraintStart_toStartOf="parent" />
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/rg_user_type"
-        android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintTop_toBottomOf="@+id/et_verification_code"
-        app:layout_constraintEnd_toEndOf="parent">
-    <RadioButton
-        android:id="@+id/rb_user_buyer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_14"
-        android:text="买家"
-        android:checked="true"
-        android:textColor="@color/textColor_999999" />
-    <RadioButton
-        android:id="@+id/rb_user_seller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_14"
-        android:text="卖家"
-        android:textColor="@color/textColor_999999"/>
-    </RadioGroup>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/dp_15"
-        android:padding="@dimen/dp_10"
-        android:text="@string/string_to_login"
-        android:gravity="center"
-        android:enabled="false"
-        android:textSize="@dimen/sp_16"
-        android:textColor="@color/white"
-        android:id="@+id/bt_to_login"
-        android:background="@drawable/selector_commit_button_bg"
-        app:layout_constraintTop_toBottomOf="@+id/rg_user_type"/>
-    <TextView
-        android:id="@+id/tv_other_to_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/bt_to_login"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:padding="@dimen/dp_10"
-        android:textColor="@color/textColor_999999"
-        android:textSize="@dimen/sp_12"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="第三方账号登录"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="horizontal">
-        <CheckBox
-            android:id="@+id/cb_service_agreement"
-            android:layout_width="wrap_content"
-            android:checked="true"
-            android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/dp_10">
+
         <TextView
+            android:id="@+id/tv_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/string_service_agreement"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </LinearLayout>
+            android:text="@string/string_register_content"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.36" />
 
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/layer_list_account_input"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
+
+        <EditText
+            android:id="@+id/et_verification_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/layer_list_account_input"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintEnd_toStartOf="@+id/tv_time"
+            app:layout_constraintRight_toLeftOf="@+id/tv_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/layer_list_account_input"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/sp_15"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:minWidth="@dimen/dp_100"
+            android:paddingHorizontal="@dimen/dp_5"
+            android:text="@string/string_get_verification"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@+id/et_verification_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/et_verification_code" />
+
+        <TextView
+            android:id="@+id/tv_login_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_login_account_password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@+id/rg_user_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rg_user_type" />
+
+        <RadioGroup
+            android:id="@+id/rg_user_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_verification_code">
+
+            <RadioButton
+                android:id="@+id/rb_user_buyer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="买家"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+
+            <RadioButton
+                android:id="@+id/rb_user_seller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卖家"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/bt_to_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/selector_commit_button_bg"
+            android:enabled="false"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="@string/string_to_login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg_user_type" />
+
+        <TextView
+            android:id="@+id/tv_other_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:text="第三方账号登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_to_login" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <CheckBox
+                android:id="@+id/cb_service_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/string_service_agreement"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:padding="@dimen/dp_3"
+        android:src="@drawable/iv_x"
+        android:fitsSystemWindows="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

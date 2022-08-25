@@ -98,7 +98,7 @@ class LoginActivity:BaseActivity<ActLoginBinding>() {
         mViewBinding.cbServiceAgreement.setOnCheckedChangeListener { buttonView, isChecked ->
             mainViewModel.checkStatus = isChecked
         }
-        mViewBinding.tvClose.clicks().subscribe {
+        mViewBinding.ivClose.clicks().subscribe {
             finish()
         }
 

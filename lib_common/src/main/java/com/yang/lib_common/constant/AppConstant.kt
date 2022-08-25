@@ -125,7 +125,7 @@ interface AppConstant {
          */
         const val MINE_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MainActivity"
 
-        const val MINE_OTHER_PERSON_INFO_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineOtherPersonInfoActivity"
+        const val MINE_USER_INFO_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineUserInfoActivity"
 
         const val MINE_CHANGE_USER_INFO_ACTIVITY = "/$MODULE_MINE/$ACTIVITY/MineChangeUserInfoActivity"
 

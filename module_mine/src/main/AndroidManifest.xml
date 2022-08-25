@@ -21,8 +21,9 @@
         <activity
             android:name=".ui.activity.MyRightsActivity"
             android:exported="false" />
+
         <activity
-            android:name=".ui.activity.MyInfoActivity"
+            android:name=".ui.activity.MineUserInfoActivity"
             android:exported="false" />
     </application>
 </manifest>
